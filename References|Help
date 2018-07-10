@@ -1,0 +1,12 @@
+# GoServer
+
+# Reference from ----> http://marcio.io/2015/07/handling-1-million-requests-per-minute-with-golang/
+# Reference 2 -------->https://www.youtube.com/watch?v=x5__QAIxQZw
+https://www.youtube.com/watch?v=9NTJF-IqEfw&t=178s
+https://github.com/gorilla/websocket/blob/master/examples/chat/hub.go
+
+https://coderwall.com/p/wohavg/creating-a-simple-tcp-server-in-go
+2)export GOROOT=/usr/local/go
+3)export PATH=$PATH:$GOROOT/bin
+4)export GOPATH=/home/pradheep/GoWorkSpace
+https://gist.github.com/hongster/04660a20f2498fb7b680

@@ -1,0 +1,18 @@
+// package main
+//
+// import (
+// 	"fmt"
+// 	"net/http"
+// )
+//
+// func main() {
+// 	fmt.Println("Server Started")
+// 	http.HandlerFunc("/", ServerHandler)
+// 	http.HandlerFunc("/getData", ServerData)
+// 	http.ListenAndServe(":8080", nil)
+// }
+//
+// func ServerHandler(responseWrite http.ResponseWriter, req *http.Request) {
+//
+// }
+//
