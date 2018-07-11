@@ -5,16 +5,20 @@ import (
 	"fmt"
 	"net"
 	"time"
+	"github.com/pradeepitm12/GoServer/redisUtil"
+
 )
 
 func HandleConnection(conn net.Conn) {
-
+redisInstance := redisUtil.NewRedis()
+redisInstance.Hset("Pradeep","h1",[]byte("Value"))
+redisInstance.Hdel("Pradeep",[]string{"h1"})
 	defer func() {
 		fmt.Println("Closing connection...")
 		conn.Close()
 	}()
 
-	timeoutDuration := 1000 * time.Millisecond
+	timeoutDuration := 5 * time.Millisecond
 	bufReader := bufio.NewReader(conn)
 	conn.Write([]byte("This is pradeep reply\n"))
 
@@ -30,4 +34,6 @@ func HandleConnection(conn net.Conn) {
 
 		fmt.Printf("%s", bytes)
 	}
+
+
 }

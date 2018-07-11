@@ -5,7 +5,9 @@ import (
 	"net"
 	"os"
 
-	util "../utils"
+	"github.com/pradeepitm12/GoServer/redisUtil"
+
+	"github.com/pradeepitm12/GoServer/utils"
 )
 
 const (
@@ -14,7 +16,14 @@ const (
 	CONN_TYPE = "tcp"
 )
 
+func init() {
+	redisPoolConf, _ := redisUtil.LoadRedisConf("redisConfig.json")
+	redisUtil.InitRedisPool(&redisPoolConf)
+
+}
+
 func main() {
+
 	listner, err := net.Listen(CONN_TYPE, CONN_HOST+":"+CONN_PORT)
 	if err != nil {
 		fmt.Println("Error listening:", err.Error())
@@ -30,6 +39,6 @@ func main() {
 			os.Exit(1)
 		}
 		// Handle connections in a new goroutine.
-		go util.HandleConnection(conn)
+		go utils.HandleConnection(conn)
 	}
 }

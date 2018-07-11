@@ -1,0 +1,7 @@
+{
+  "redis_address":"127.0.0.1:6379",
+  "redis_pool_max_idle":"2000",
+  "redis_pool_max_active":"100",
+  "redis_pool_idle_timeout":"1500",
+  "redis_password":"abc@ald@dsf"
+}
