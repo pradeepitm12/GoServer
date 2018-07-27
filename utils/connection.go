@@ -5,14 +5,15 @@ import (
 	"fmt"
 	"net"
 	"time"
-	"github.com/pradeepitm12/GoServer/redisUtil"
-
+	//"github.com/pradeepitm12/GoServer/utils"
 )
 
 func HandleConnection(conn net.Conn) {
-redisInstance := redisUtil.NewRedis()
-redisInstance.Hset("Pradeep","h1",[]byte("Value"))
-redisInstance.Hdel("Pradeep",[]string{"h1"})
+	redisInstance := NewRedis()
+	redisInstance.Hset("Pradeep", "h1", []byte("Value"))
+	redisInstance.Hdel("Pradeep", []string{"h1"})
+	KafkaProducer("Hello This is my first message ")
+
 	defer func() {
 		fmt.Println("Closing connection...")
 		conn.Close()
@@ -34,6 +35,5 @@ redisInstance.Hdel("Pradeep",[]string{"h1"})
 
 		fmt.Printf("%s", bytes)
 	}
-
 
 }

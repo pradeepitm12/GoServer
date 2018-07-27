@@ -5,20 +5,18 @@ import (
 	"net"
 	"os"
 
-	"github.com/pradeepitm12/GoServer/redisUtil"
-
 	"github.com/pradeepitm12/GoServer/utils"
 )
 
 const (
 	CONN_HOST = "localhost"
-	CONN_PORT = "9000"
+	CONN_PORT = "8091"
 	CONN_TYPE = "tcp"
 )
 
 func init() {
-	redisPoolConf, _ := redisUtil.LoadRedisConf("redisConfig.json")
-	redisUtil.InitRedisPool(&redisPoolConf)
+	utils.LoadConfigJson("config.json")
+	utils.InitRedisPool()
 
 }
 

@@ -1,6 +1,4 @@
-// Methods for writing operations are not exported, only use for test.
-
-package redisUtil
+package utils
 
 import (
 	"log"
@@ -13,8 +11,8 @@ type Redis struct {
 }
 
 func NewRedis() *Redis {
-	conn := pool.Get()
-	log.Printf("Get conn from redis_conn_pool, active connections in the pool is %d", pool.ActiveCount())
+	conn := redisPool.Get()
+	log.Printf("Get conn from redis_conn_pool, active connections in the pool is %d", redisPool.ActiveCount())
 	//conn.Do("AUTH", "redis@123@Azure")
 	return &Redis{
 		conn: conn,
@@ -23,7 +21,7 @@ func NewRedis() *Redis {
 
 func (s *Redis) Close() {
 	s.conn.Close()
-	log.Printf("Return conn to redis_conn_pool, active connections in the pool is %d", pool.ActiveCount())
+	log.Printf("Return conn to redis_conn_pool, active connections in the pool is %d", redisPool.ActiveCount())
 }
 
 // Operations for Hash

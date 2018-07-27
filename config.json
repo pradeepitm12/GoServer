@@ -1,0 +1,15 @@
+{
+    "redisConfig": {
+        "redis_address": "127.0.0.1:6379",
+        "redis_pool_max_idle": "2000",
+        "redis_pool_max_active": "100",
+        "redis_pool_idle_timeout": "1500",
+        "redis_password": "redis@123@Azure"
+    },
+    "kafkaConfig": {
+        "bootstrap.servers": "localhost",
+        "group.id": "myGroup",
+        "auto.offset.reset": "earliest",
+        "kafka.topic":"GoKafka"
+    }
+}
